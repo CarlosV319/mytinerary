@@ -4,7 +4,7 @@ const itineraryActions = {
   getItineraryByCity: (Id) => {
     return (dispatch, getState) => {
       axios
-        .get("http://localhost:4000/api/itinerary/" + Id)
+        .get("https://mytinerary-chi.vercel.app/api/itinerary/" + Id)
         .then((respuesta) =>
           dispatch({ type: "GET_ITINERARY", payload: respuesta.data })
         );
@@ -13,7 +13,7 @@ const itineraryActions = {
   likeDislike: (itineraryId, token) => {
     return async () => {
         try {
-            let response = await axios.put(`http://localhost:4000/api/itineraries/like/${itineraryId}`, {},
+            let response = await axios.put(`https://mytinerary-chi.vercel.app/api/itineraries/like/${itineraryId}`, {},
             {headers: {
                 Authorization: "Bearer "+token
                 }
@@ -30,7 +30,7 @@ addComment: (itineraryId, comment, token,urlImage,name) => {
     console.log(urlImage)
   return async () => {
       try {
-          let response = await axios.put(`http://localhost:4000/api/comments/${itineraryId}`, {comment,urlImage,name, type: "addComment"},
+          let response = await axios.put(`https://mytinerary-chi.vercel.app/api/comments/${itineraryId}`, {comment,urlImage,name, type: "addComment"},
           {headers: {
               Authorization: "Bearer "+token
               }
@@ -52,7 +52,7 @@ addComment: (itineraryId, comment, token,urlImage,name) => {
 deleteComment: (itineraryId, commentId, token) => {
   return async (dispatch) => {
       try {
-          let response = await axios.put(`http://localhost:4000/api/comments/${itineraryId}`, {commentId, type: "deleteComment"},
+          let response = await axios.put(`https://mytinerary-chi.vercel.app/api/comments/${itineraryId}`, {commentId, type: "deleteComment"},
           {headers: {
               Authorization: "Bearer "+token
               }
@@ -75,7 +75,7 @@ deleteComment: (itineraryId, commentId, token) => {
 editComment: (commentId, comment, token) => {
   return async () => {
       try {
-          let response = await axios.put(`http://localhost:4000/api/comments/${commentId}`, { comment, type: "editComment"},
+          let response = await axios.put(`https://mytinerary-chi.vercel.app/api/comments/${commentId}`, { comment, type: "editComment"},
           {headers: {
               Authorization: "Bearer "+token
               }

@@ -7,7 +7,7 @@ const authActions = {
         return async(dispatch, getState)=>{
             try {
                
-                const user = await axios.post('http://localhost:4000/api/auth/signUp',{...User})
+                const user = await axios.post('https://mytinerary-chi.vercel.app/api/auth/signUp',{...User})
                 if(user.data.success && !user.data.error){
                     localStorage.setItem("token", user.data.response.token);
                     dispatch({type:'USER', payload:user.data.response})
@@ -40,7 +40,7 @@ const authActions = {
         return async(dispatch, getState)=>{
             try {
               
-                const user = await axios.post('http://localhost:4000/api/auth/signIn',{...userLogin})
+                const user = await axios.post('https://mytinerary-chi.vercel.app/api/auth/signIn',{...userLogin})
                 if(user.data.success && !user.data.error){
                     localStorage.setItem("token", user.data.response.token);
                     dispatch({type:'USER', payload:user.data.response})
@@ -60,7 +60,7 @@ const authActions = {
     logInLS: (token) => {
         return async (dispatch, getState) => {
             try {
-                let response = await axios.get("http://localhost:4000/api/tokenVerification", {
+                let response = await axios.get("https://mytinerary-chi.vercel.app/api/tokenVerification", {
                 headers: {
                     Authorization: "Bearer "+ token
                 },

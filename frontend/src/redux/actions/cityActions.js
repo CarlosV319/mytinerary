@@ -4,7 +4,7 @@ const cityActions = {
   fetchearCities: () => { 
     return (dispatch, getState) => {
       axios
-        .get("http://localhost:4000/api/cities")
+        .get("https://mytinerary-chi.vercel.app/api/cities")
         .then((respuesta) =>
           dispatch({ type: "Fetch_cities", payload: respuesta.data })
         );
@@ -18,7 +18,7 @@ const cityActions = {
   fetchUnaCity: (id) => {
     return (dispatch, getState) => {
       axios
-        .get("http://localhost:4000/api/cities/" + id)
+        .get("https://mytinerary-chi.vercel.app/api/cities/" + id)
         .then((respuesta) =>
           dispatch({ type: "FETCH_UNA_CITY", payload: respuesta.data })
         );
