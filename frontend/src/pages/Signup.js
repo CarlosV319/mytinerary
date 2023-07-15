@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import authActions from "../redux/actions/authActions";
+import authActions from "../redux/actions/authActions.js";
 import { useRef } from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
